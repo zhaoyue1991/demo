@@ -8,6 +8,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.dao.UserRepository;
@@ -33,5 +37,13 @@ public class UserRepositoryTests {
 		Assert.assertEquals(9, userRepository.findAll().size());
 		Assert.assertEquals("bb", userRepository.findByUserNameOrEmail("bb", "cc@126.com").getNickName());
 		userRepository.delete(userRepository.findByUserName("aa1"));
+		
+	}
+	
+	@Test
+	public void query() {
+		Sort sort = new Sort(Direction.DESC, "id");
+		Pageable pageable = new PageRequest(1, 10, sort);
+		userRepository.findAll(pageable);
 	}
 }
