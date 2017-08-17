@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class NeoProperties {
-	
-	@Value("${com.example.title}")
-	private String title;
-	
-	@Value("${com.example.description}")
-	private String description;
+
+  @Value("${com.example.title}")
+  private String title;
+
+  @Value("${com.example.description}")
+  private String description;
 }

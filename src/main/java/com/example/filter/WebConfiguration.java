@@ -11,24 +11,24 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 public class WebConfiguration {
-	
-	public class MyFilter implements Filter{
 
-		@Override
-		public void destroy() {
-		}
+  public class MyFilter implements Filter {
 
-		@Override
-		public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
-				throws IOException, ServletException {
-			HttpServletRequest servletRequest = (HttpServletRequest) request;
-			System.out.println(servletRequest.getRequestURI());
-			filterChain.doFilter(request, response);
-		}
+    @Override
+    public void destroy() {
+    }
 
-		@Override
-		public void init(FilterConfig arg0) throws ServletException {
-		}
-		
-	}
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
+        throws IOException, ServletException {
+      HttpServletRequest servletRequest = (HttpServletRequest) request;
+      System.out.println(servletRequest.getRequestURI());
+      filterChain.doFilter(request, response);
+    }
+
+    @Override
+    public void init(FilterConfig arg0) throws ServletException {
+    }
+
+  }
 }

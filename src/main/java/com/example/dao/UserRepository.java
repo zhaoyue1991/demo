@@ -11,14 +11,14 @@ import com.example.mdl.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	User findByUserName(String userName);
-	
-	User findByUserNameOrEmail(String username, String email);
-	
-	Page<User> findAll(Pageable pageable);
-	
-	@Transactional(timeout = 10)
-	@Modifying
-	@Query("update User u set u.userName = ?1 where c.id = ?2")
-	int modifyByIdAndUserId(String userName, Long id);
+  User findByUserName(String userName);
+
+  User findByUserNameOrEmail(String username, String email);
+
+  Page<User> findAll(Pageable pageable);
+
+  @Transactional(timeout = 10)
+  @Modifying
+  @Query("update User u set u.userName = ?1 where c.id = ?2")
+  int modifyByIdAndUserId(String userName, Long id);
 }

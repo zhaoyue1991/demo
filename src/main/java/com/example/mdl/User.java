@@ -8,84 +8,84 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User implements Serializable{
+public class User implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue
-	private Long id;
-	
-	@Column(nullable = false, unique = true)
-	private String userName;
-	
-	@Column(nullable = false)
-	private String passWord;
-	
-	@Column(nullable = false, unique = true)
-	private String email;
-	
-	@Column(nullable = false, unique = true)
-	private String nickName;
-	
-	@Column(nullable = false)
-	private String regTime;
+  private static final long serialVersionUID = 1L;
 
-	public User(String userName, String passWord, String email, String nickName, String regTime) {
-		super();
-		this.userName = userName;
-		this.passWord = passWord;
-		this.email = email;
-		this.nickName = nickName;
-		this.regTime = regTime;
-	}
+  @Id
+  @GeneratedValue
+  private Long id;
 
-	public Long getId() {
-		return id;
-	}
+  @Column(nullable = false, unique = true)
+  private String userName;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  @Column(nullable = false)
+  private String passWord;
 
-	public String getUserName() {
-		return userName;
-	}
+  @Column(nullable = false, unique = true)
+  private String email;
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+  @Column(nullable = false, unique = true)
+  private String nickName;
 
-	public String getPassWord() {
-		return passWord;
-	}
+  @Column(nullable = false)
+  private String regTime;
 
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
-	}
+  public User(String userName, String passWord, String email, String nickName, String regTime) {
+    super();
+    this.userName = userName;
+    this.passWord = passWord;
+    this.email = email;
+    this.nickName = nickName;
+    this.regTime = regTime;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public String getNickName() {
-		return nickName;
-	}
+  public String getUserName() {
+    return userName;
+  }
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
 
-	public String getRegTime() {
-		return regTime;
-	}
+  public String getPassWord() {
+    return passWord;
+  }
 
-	public void setRegTime(String regTime) {
-		this.regTime = regTime;
-	}
-	
+  public void setPassWord(String passWord) {
+    this.passWord = passWord;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getNickName() {
+    return nickName;
+  }
+
+  public void setNickName(String nickName) {
+    this.nickName = nickName;
+  }
+
+  public String getRegTime() {
+    return regTime;
+  }
+
+  public void setRegTime(String regTime) {
+    this.regTime = regTime;
+  }
+
 }

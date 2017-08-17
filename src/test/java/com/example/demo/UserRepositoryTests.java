@@ -21,29 +21,29 @@ import com.example.mdl.User;
 @SpringBootTest
 public class UserRepositoryTests {
 
-	@Autowired
-	private UserRepository userRepository;
+  @Autowired
+  private UserRepository userRepository;
 
-	@Test
-	public void test() throws Exception {
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
-		String formattedDate = dateFormat.format(date);
+  @Test
+  public void test() throws Exception {
+    Date date = new Date();
+    DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
+    String formattedDate = dateFormat.format(date);
 
-		userRepository.save(new User("aa1", "aa@126.com", "aa", "aa123456", formattedDate));
-		userRepository.save(new User("bb2", "bb@126.com", "bb", "bb123456", formattedDate));
-		userRepository.save(new User("cc3", "cc@126.com", "cc", "cc123456", formattedDate));
+    userRepository.save(new User("aa1", "aa@126.com", "aa", "aa123456", formattedDate));
+    userRepository.save(new User("bb2", "bb@126.com", "bb", "bb123456", formattedDate));
+    userRepository.save(new User("cc3", "cc@126.com", "cc", "cc123456", formattedDate));
 
-		Assert.assertEquals(9, userRepository.findAll().size());
-		Assert.assertEquals("bb", userRepository.findByUserNameOrEmail("bb", "cc@126.com").getNickName());
-		userRepository.delete(userRepository.findByUserName("aa1"));
-		
-	}
-	
-	@Test
-	public void query() {
-		Sort sort = new Sort(Direction.DESC, "id");
-		Pageable pageable = new PageRequest(1, 10, sort);
-		userRepository.findAll(pageable);
-	}
+    Assert.assertEquals(9, userRepository.findAll().size());
+    Assert.assertEquals("bb", userRepository.findByUserNameOrEmail("bb", "cc@126.com").getNickName());
+    userRepository.delete(userRepository.findByUserName("aa1"));
+
+  }
+
+  @Test
+  public void query() {
+    Sort sort = new Sort(Direction.DESC, "id");
+    Pageable pageable = new PageRequest(1, 10, sort);
+    userRepository.findAll(pageable);
+  }
 }
