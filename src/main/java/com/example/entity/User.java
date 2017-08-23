@@ -1,4 +1,9 @@
-package com.example.mdl;
+package com.example.entity;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -18,6 +23,8 @@ public class User implements Serializable {
   @Id
   @GeneratedValue
   private Long id;
+
+
 
   @Column(nullable = false, unique = true)
   private String userName;

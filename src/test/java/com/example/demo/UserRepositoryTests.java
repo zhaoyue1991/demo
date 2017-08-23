@@ -14,8 +14,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.dao.UserRepository;
-import com.example.mdl.User;
+import com.example.repository.UserRepository;
+import com.example.entity.User;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

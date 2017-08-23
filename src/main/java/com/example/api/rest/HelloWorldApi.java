@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.api.rest;
 
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @RestController 以json格式输出
  */
 @RestController
-public class HelloWorldController {
+public class HelloWorldApi {
 
   @RequestMapping("/hello")
   public String index() {
