@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -28,6 +29,7 @@ public class User implements Serializable {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
+  @NotNull(message = "姓名不能为空")
   @Column(nullable = false, unique = true)
   private String userName;
 
