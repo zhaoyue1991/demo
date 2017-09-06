@@ -14,7 +14,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
@@ -30,16 +32,23 @@ public class User implements Serializable {
   private Long id;
 
   @NotNull(message = "姓名不能为空")
-  @Column(nullable = false, unique = true)
+  @Size(min = 2, max = 20)
+  @Column(length = 20, nullable = false, unique = true)
   private String userName;
 
-  @Column(nullable = false)
+  @NotNull
+  @Min(18)
+  @Column(length = 3, nullable = false, unique = true)
+  private Integer age;
+
+  @NotNull
+  @Column(length = 20, nullable = false)
   private String passWord;
 
-  @Column(nullable = false, unique = true)
+  @Column(length = 30, unique = true)
   private String email;
 
-  @Column(nullable = false, unique = true)
+  @Column(length = 30, unique = true)
   private String nickName;
 
   @Column(nullable = false)
