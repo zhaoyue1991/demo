@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import javax.validation.Valid;
 
 @Controller
-public class WebController extends WebMvcConfigurerAdapter {
+public class WebApi extends WebMvcConfigurerAdapter {
 
 
   @Override

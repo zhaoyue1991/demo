@@ -22,15 +22,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.stream.Collectors;
 
 @Controller
-public class FileUploadController {
+public class FileUploadApi {
 
   @Autowired
   private FileSystemStorageService fileSystemStorageService;
 
-  @GetMapping("/")
+  @GetMapping("/listUploadedFiles")
   public String listUploadedFiles(Model model) {
     model.addAttribute("files", fileSystemStorageService.loadAll().map(
-        path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
+        path -> MvcUriComponentsBuilder.fromMethodName(FileUploadApi.class,
             "serveFile", path.getFileName().toString()).build().toString())
         .collect(Collectors.toList()));
     return "uploadForm";
@@ -44,13 +44,13 @@ public class FileUploadController {
           "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-  @PostMapping("/")
+  @PostMapping("/handleFileUpload")
   public String handleFileUpload(@RequestParam("file") MultipartFile file,
       RedirectAttributes redirectAttributes) {
     fileSystemStorageService.store(file);
     redirectAttributes.addFlashAttribute("message",
         "You successfully uploaded " + file.getOriginalFilename() + "!");
-    return "redirect:/";
+    return "redirect:/listUploadedFiles";
   }
 
   @ExceptionHandler(StorageFileNotFoundException.class)
